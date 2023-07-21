@@ -13,17 +13,17 @@ that were used in the research reported on in the paper
 
 To cite the contents of this repository, please cite both the paper and this repo, using their respective DOIs.
 
-(https://doi.org/10.1287/ijoc.2023.YYYY)
+(https://doi.org/10.1287/ijoc.2022.0129)
 
-(https://doi.org/10.1287/ijoc.2023.YYYY.cd)
+(https://doi.org/10.1287/ijoc.2022.0129.cd)
 
 Below is the BibTex for citing this snapshot of the respoitory.
 
 ```
 @article{ales2023correlation,
-  author =        {Ales, Z. and Engelbeel, C. and Figueiredo, R.},
+  author =        {Ales, Z. and Engelbeen, C. and Figueiredo, R.},
   publisher =     {INFORMS Journal on Computing},
-  title =         {{Correlation Clustering Problem underscore Mediation}},
+  title =         {{Correlation Clustering Problem under Mediation}},
   year =          {2023},
   doi =           {10.1287/ijoc.2019.0000.cd}
 }  
@@ -54,7 +54,7 @@ Table 3 presents the mean time, the mean gap and the mean number of nodes of the
 
 ![Table 3](results/img/table3.png)
 
-Table 4 presents similar results for Algorithm A1 and CPLEX over instances from the parliament.
+Table 4 presents similar results for Algorithm A1 and CPLEX over instances from the European parliament.
 
 ![Table 4](results/img/table4.png)
 
