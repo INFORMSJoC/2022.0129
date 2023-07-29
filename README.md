@@ -1,106 +1,71 @@
 [![INFORMS Journal on Computing Logo](https://INFORMSJoC.github.io/logos/INFORMS_Journal_on_Computing_Header.jpg)](https://pubsonline.informs.org/journal/ijoc)
 
-# CacheTest
+# Correlation Clustering under Mediation
 
 This archive is distributed in association with the [INFORMS Journal on
 Computing](https://pubsonline.informs.org/journal/ijoc) under the [MIT License](LICENSE).
 
 The software and data in this repository are a snapshot of the software and data
 that were used in the research reported on in the paper 
-[This is a Template](https://doi.org/10.1287/ijoc.2019.0000) by T. Ralphs. 
-The snapshot is based on 
-[this SHA](https://github.com/tkralphs/JoCTemplate/commit/f7f30c63adbcb0811e5a133e1def696b74f3ba15) 
-in the development repository. 
-
-**Important: This code is being developed on an on-going basis at 
-https://github.com/tkralphs/JoCTemplate. Please go there if you would like to
-get a more recent version or would like support**
+[Correlation Clustering under Mediation](https://doi.org/10.1287/ijoc.2023.YYYY) by Z. Ales, C. Engelbeen, R. Figueiredo.
 
 ## Cite
 
 To cite the contents of this repository, please cite both the paper and this repo, using their respective DOIs.
 
-https://doi.org/10.1287/ijoc.2019.0000
+(https://doi.org/10.1287/ijoc.2022.0129)
 
-https://doi.org/10.1287/ijoc.2019.0000.cd
+(https://doi.org/10.1287/ijoc.2022.0129.cd)
 
 Below is the BibTex for citing this snapshot of the respoitory.
 
 ```
-@article{CacheTest,
-  author =        {T. Ralphs},
+@article{ales2023correlation,
+  author =        {Ales, Z. and Engelbeen, C. and Figueiredo, R.},
   publisher =     {INFORMS Journal on Computing},
-  title =         {{CacheTest}},
-  year =          {2020},
-  doi =           {10.1287/ijoc.2019.0000.cd},
-  url =           {https://github.com/INFORMSJoC/2019.0000},
+  title =         {{Correlation Clustering Problem under Mediation}},
+  year =          {2023},
+  doi =           {10.1287/ijoc.2019.0000.cd}
 }  
 ```
 
 ## Description
 
-The goal of this software is to demonstrate the effect of cache optimization.
+The goal of this software is to solve the correlation clustering problem under mediation with the methods presented in the article.
 
 ## Building
 
-In Linux, to build the version that multiplies all elements of a vector by a
-constant (used to obtain the results in [Figure 1](results/mult-test.png) in the
-paper), stepping K elements at a time, execute the following commands.
+The execution of the software requires the installation of CPLEX, Julia and of the following Julia packages: DataStructures, JuMP, CPLEX, and Dates.
+To test if everything is installed you can solve only one instance with a maximal time of 20 seconds by using the following commands in a Julia console:
 
 ```
-make mult
+cd("src")
+include("expe.jl")
+testExperiment()
 ```
-
-Alternatively, to build the version that sums the elements of a vector (used
-to obtain the results [Figure 2](results/sum-test.png) in the paper), stepping K
-elements at a time, do the following.
-
-```
-make clean
-make sum
-```
-
-Be sure to make clean before building a different version of the code.
 
 ## Results
 
-Figure 1 in the paper shows the results of the multiplication test with different
-values of K using `gcc` 7.5 on an Ubuntu Linux box.
+Table 2 in the article shows the mean time and the number of maximal mediator sets generated for Algorithm A1 and CPLEX on random instances.
 
-![Figure 1](results/mult-test.png)
+![Table 2](results/img/table2.png)
 
-Figure 2 in the paper shows the results of the sum test with different
-values of K using `gcc` 7.5 on an Ubuntu Linux box.
+Table 3 presents the mean time, the mean gap and the mean number of nodes of the enumeration trees for Algorithm A1, A2 and CPLEX on random instances.
 
-![Figure 1](results/sum-test.png)
+![Table 3](results/img/table3.png)
+
+Table 4 presents similar results for Algorithm A1 and CPLEX over instances from the European parliament.
+
+![Table 4](results/img/table4.png)
+
 
 ## Replicating
 
-To replicate the results in [Figure 1](results/mult-test), do either
-
+To replicate the results, do the following in a Julia console
 ```
-make mult-test
-```
-or
-```
-python test.py mult
-```
-To replicate the results in [Figure 2](results/sum-test), do either
-
-```
-make sum-test
-```
-or
-```
-python test.py sum
+cd("src")
+include("expe.jl")
+articleExperiment()
 ```
 
-## Ongoing Development
-
-This code is being developed on an on-going basis at the author's
-[Github site](https://github.com/tkralphs/JoCTemplate).
-
-## Support
-
-For support in using this software, submit an
-[issue](https://github.com/tkralphs/JoCTemplate/issues/new).
+The results obtained will be stored in folder `results/size30to50` for the random instances and in folder `results/parliament` for the instances from the parliament. In both the result files and the code, Algorithm 1 is denoted by `BT2Unified`, Algorithm 2 by `BT2PartialRelaxationUnified`, and the version of CPLEX that generates all the maximal mediator sets by `CPLEXAllMediatorSets`.
