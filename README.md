@@ -25,7 +25,7 @@ Below is the BibTex for citing this snapshot of the respoitory.
   publisher =     {INFORMS Journal on Computing},
   title =         {{Correlation Clustering Problem under Mediation}},
   year =          {2023},
-  doi =           {10.1287/ijoc.2019.0000.cd},
+  doi =           {10.1287/ijoc.2022.0129.cd},
   note =          {Available for download at https://github.com/INFORMSJoC/2022.0129}
 }  
 ```
